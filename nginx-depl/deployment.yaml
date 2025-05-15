@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  namespace: test
+  name: nginx-depl
+
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      name: nginx-app
+  template:
+    metadata:
+      labels:
+        name: nginx-app
+    spec:
+      containers:
+      - name: nginx-first
+        image: nginx:stable-alpine
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "200Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi" 
+        ports:
+          - containerPort: 80
+
+
