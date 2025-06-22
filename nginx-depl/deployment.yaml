@@ -3,6 +3,7 @@ kind: Deployment
 
 metadata:
   name: nginx-depl-2
+  annotations: argocd.argoproj.io/sync-phase=PreSync
 
 spec:
   replicas: 1
